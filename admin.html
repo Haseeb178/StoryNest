@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — StoryNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">StoryNest</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <button class="btn outline" id="logoutButton" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-dashboard">
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h2>Admin Dashboard</h2>
+        <p>Manage site stories from a single source of truth.</p>
+      </div>
+      <div class="sidebar-card stats-card">
+        <h3>Story Summary</h3>
+        <p>Total stories: <strong id="storyCount">0</strong></p>
+        <p>Categories: featured, animals, facts, trending</p>
+      </div>
+      <div class="sidebar-card analytics-card">
+        <h3>View Analytics</h3>
+        <p>Total story views: <strong id="totalViews">0</strong></p>
+        <p>Most viewed: <strong id="topStory">None yet</strong></p>
+      </div>
+      <div class="sidebar-card help-card">
+        <h3>How it works</h3>
+        <p>Stories are stored in Firebase Firestore, with view analytics and secure admin access.</p>
+      </div>
+    </aside>
+
+    <section class="admin-main">
+      <div class="admin-top">
+        <h1>Story Editor</h1>
+        <button class="btn outline" id="clearFormButton">Clear Form</button>
+      </div>
+
+      <section class="card admin-card form-card">
+        <h2>Add New Story</h2>
+        <form id="storyForm">
+          <input type="hidden" id="storyId">
+          <div class="form-grid">
+            <label>Title<input id="title" required></label>
+            <label>Short Description<textarea id="shortDescription" rows="2"></textarea></label>
+            <label>Full Content<textarea id="fullContent" rows="6"></textarea></label>
+            <label>Image URL<input id="image"></label>
+            <label>Category
+              <select id="categorySelect">
+                <option value="featured">Featured</option>
+                <option value="animals">Animals</option>
+                <option value="facts">Facts</option>
+                <option value="trending">Trending</option>
+              </select>
+            </label>
+            <label>Author<input id="author"></label>
+            <label>Date<input id="date" type="date"></label>
+          </div>
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Save Story</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card admin-card generator-card">
+        <div class="section-head">
+          <h2>AI Story Lab</h2>
+          <p>Generate a story draft from a prompt and quickly fill the editor.</p>
+        </div>
+        <div class="form-grid">
+          <label>Prompt<input id="aiPrompt" placeholder="A curious animal adventure..." type="text"></label>
+          <label>Category
+            <select id="aiCategory">
+              <option value="featured">Featured</option>
+              <option value="animals">Animals</option>
+              <option value="facts">Facts</option>
+              <option value="trending">Trending</option>
+            </select>
+          </label>
+          <label>Author<input id="aiAuthor" placeholder="StoryNest AI" type="text"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn primary" id="generateButton" type="button">Generate Story</button>
+          <button class="btn outline" id="fillFormButton" type="button">Fill Form</button>
+        </div>
+        <div class="ai-output" id="aiOutput"></div>
+      </section>
+
+      <section class="card admin-card table-card">
+        <div class="section-head">
+          <h2>All Stories</h2>
+        </div>
+        <div class="table-wrapper">
+          <table id="storiesTable" class="admin-table">
+            <thead>
+              <tr><th>Id</th><th>Title</th><th>Category</th><th>Author</th><th>Date</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year3"></span> StoryNest</p>
+    </div>
+  </footer>
+
+  <script src="js/storiesDB.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StoryNest — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">StoryNest</a>
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#animals">Animals</a></li>
+          <li><a href="#facts">Facts</a></li>
+          <li><a href="#trending">Trending</a></li>
+        </ul>
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Search stories...">
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">Explore, read, and discover</span>
+          <h1>Stories that spark curiosity.</h1>
+          <p class="subtitle">Short reads, big wonders — animals, facts, and trending tales.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#featured">Explore Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured Stories</h2>
+            <p>Handpicked tales to inspire every reader.</p>
+          </div>
+        </div>
+        <div class="cards" id="featuredCards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="animals">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Animal Stories</h2>
+            <p>Discover nature, wildlife, and charming adventures.</p>
+          </div>
+          <a class="view-all" href="#animals">View all</a>
+        </div>
+        <div class="cards" id="animalCards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="facts">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Amazing Facts</h2>
+            <p>Quick stories full of wonder and insight.</p>
+          </div>
+        </div>
+        <div class="cards" id="factCards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="trending">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Trending Stories</h2>
+            <p>The latest stories gaining attention.</p>
+          </div>
+        </div>
+        <div class="cards" id="trendingCards"></div>
+      </div>
+    </section>
+
+    <section class="section categories">
+      <div class="container">
+        <div class="section-head">
+          <h2>Categories</h2>
+          <p>Select a category to explore stories by theme.</p>
+        </div>
+        <div class="category-list" id="categoryList"></div>
+      </div>
+    </section>
+
+    <section class="section newsletter">
+      <div class="container newsletter-inner">
+        <div>
+          <h3>Subscribe to our newsletter</h3>
+          <p>Get short stories and amazing facts in your inbox.</p>
+        </div>
+        <form id="newsletterForm" class="newsletter-form">
+          <input id="newsletterEmail" type="email" placeholder="Your email address" required>
+          <button class="btn primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> StoryNest — Made with curiosity.</p>
+      <a href="#" id="backToTop" class="back-to-top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="js/storiesDB.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
